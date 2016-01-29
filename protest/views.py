@@ -1,11 +1,18 @@
 from django.shortcuts import redirect, render
 from protest.forms import ProtestForm
 from protest.models import Protest
-
 # Create your views here.
 
 def index(request) :
     return render(request, 'protest/index.html')
+
+def post_list(request) :
+
+    post_list = Protest.objects.all()
+    params = {
+    'post_list' : post_list,
+    }
+    return render(request, 'protest/post_list.html', params)
 
 
 def protest_new(request):
@@ -19,13 +26,12 @@ def protest_new(request):
     else :
         form = ProtestForm
 
-    return render(request, 'templates/protest_form.html', {
+    return render(request, 'protest/protest_form.html', {
         'form' : form,
         })
 
 
 def protest_edit(request, pk):
-
     protest = Protest.objects.get(pk= pk)
 
     if request.method == 'POST':
@@ -38,21 +44,3 @@ def protest_edit(request, pk):
     return render(request, 'templates/protest_form.html', {
         'form' : form,
         })
-
-
-def post_list(request) :
-
-    post_list = Protest.objects.all()
-    params = {
-    'post_list' : post_list,
-    }
-    return render(request, 'protest/post_list.html', params)
-
-def post_detail(request, pk):
-
-    post = Protest.objects.get(pk=pk)
-
-    params = {
-    'post' : post,
-    }
-    return render(request, 'templates/post_detail.html', params)
