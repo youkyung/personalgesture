@@ -1,5 +1,5 @@
 from django import forms
-from blog.models import Protest
+from protest.models import Protest
 
 class ProtestForm(forms.ModelForm):
     class Meta :
