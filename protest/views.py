@@ -4,7 +4,7 @@ from protest.forms import ProtestForm
 # Create your views here.
 
 def index(request) :
-    return render(request, 'templates/index.html')
+    return render(request, 'protest/index.html')
 
 
 def protest_new(request):
