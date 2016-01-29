@@ -1,7 +1,5 @@
 from django.contrib import admin
-from blog.models import Protest
-from blog.models import User
-from blog.models import Participation, Donation
+from admin.models import Protest, User, Participation, Donation, DonationState
 # Register your models here.
 
 
@@ -22,8 +20,11 @@ class DonationAdmin(admin.ModelAdmin):
     list_display_links = ['protest']
 
 class DonationStateAdmin(admin.ModelAdmin):
-    list_display = ['']
+    list_display = ['protest', 'user']
+    list_display_links = ['protest', 'user']
+
 admin.site.register(Protest,ProtestAdmin)
 admin.site.register(User,UserAdmin)
 admin.site.register(Participation,ParticipationAdmin)
 admin.site.register(Donation, DonationAdmin)
+admin.site.register(DonationState, DonationStateAdmin)
