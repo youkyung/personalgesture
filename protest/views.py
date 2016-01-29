@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render
+from protest.models import Protest
 from protest.forms import ProtestForm
 
 # Create your views here.
