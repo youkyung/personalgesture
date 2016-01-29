@@ -34,7 +34,7 @@ def protest_edit(request, pk):
             return redirect('blog.views.protest_edit', protest.pk)
 
     else: form = ProtestForm (instance = protest)
-    return render(request, 'templates/protest_form.html', {
+    return render(request, 'protest/protest_form.html', {
         'form' : form,
         })
 
@@ -45,7 +45,7 @@ def post_list(request) :
     params = {
     'post_list' : post_list,
     }
-    return render(request, 'templates/post_list.html', params)
+    return render(request, 'protest/post_list.html', params)
 
 def post_detail(request, pk):
 
@@ -54,4 +54,4 @@ def post_detail(request, pk):
     params = {
     'post' : post,
     }
-    return render(request, 'templates/post_detail.html', params)
+    return render(request, 'protest/post_detail.html', params)
