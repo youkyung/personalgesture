@@ -22,8 +22,16 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', 'protest.views.index'),
     url(r'^index/$', 'protest.views.index'),
+<<<<<<< HEAD
+    # url(r'^protests/$', 'protest.views.post_list'),
+=======
     url(r'^protests/$', 'protest.views.post_list'),
+<<<<<<< HEAD
     # url(r'^protests/(?P<pk>\d+)/$', 'protest.views.protest_detail'),
+=======
+>>>>>>> origin/master
+    # url(r'^protests/(?P<pk>\d+)/$', 'protest.views.post_detail'),
+>>>>>>> origin/master
     url(r'^protests/new/$', 'protest.views.protest_new'),
     url(r'^protests/(?P<pk>\d+)/edit/$', 'protest.views.protest_edit'),
     # url(r'^protests/(?P<protest_pk>\d+)/comments/new/$', 'protest.views.comment_new'),
