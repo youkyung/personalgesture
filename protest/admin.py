@@ -1,5 +1,5 @@
 from django.contrib import admin
-from admin.models import Protest, User, Participation, Donation, DonationState
+from protest.models import Protest, User, Participation, Donation, DonationState
 # Register your models here.
 
 
