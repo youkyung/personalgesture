@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 from protest.forms import ProtestForm
+from protest.models import Protest
 
 # Create your views here.
 
@@ -45,7 +46,7 @@ def post_list(request) :
     params = {
     'post_list' : post_list,
     }
-    return render(request, 'templates/post_list.html', params)
+    return render(request, 'protest/post_list.html', params)
 
 def post_detail(request, pk):
 
