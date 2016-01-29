@@ -27,7 +27,7 @@ class Protest(models.Model) :
         validators=[
             MinValueValidator(1)
         ])
-    user = models.ForeignKey('User')
+    author = models.ForeignKey('User')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -55,7 +55,6 @@ class Participation(models.Model):
 class Donation(models.Model):
     protest = models.ForeignKey(Protest)
     amount = models.PositiveIntegerField(default=1000)
-    account_number = models.PositiveIntegerField(default=1)
     BANK_CHOICES = (
         ('a', '신한은행'), #a,b,c,d,e는 꼭 있어야하는가?
         ('b', '국민은행'),
@@ -64,6 +63,8 @@ class Donation(models.Model):
         ('e', '농협은행'),
     )
     bank = models.CharField(max_length=50, choices = BANK_CHOICES, default='a')
+    account_number = models.PositiveIntegerField(default=1)
+    beneficiary = models.CharField(max_length = 20)
 
 
 class DonationState(models.Model):

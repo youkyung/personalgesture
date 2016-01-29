@@ -6,7 +6,7 @@ from blog.models import Participation, Donation
 
 
 class ProtestAdmin(admin.ModelAdmin):
-    list_display = ['title']
+    list_display = ['title', ]
     list_display_links = ['title']
 
 class UserAdmin(admin.ModelAdmin):
@@ -21,7 +21,8 @@ class DonationAdmin(admin.ModelAdmin):
     list_display = ['protest', 'amount', 'account_number']
     list_display_links = ['protest']
 
-
+class DonationStateAdmin(admin.ModelAdmin):
+    list_display = ['']
 admin.site.register(Protest,ProtestAdmin)
 admin.site.register(User,UserAdmin)
 admin.site.register(Participation,ParticipationAdmin)
