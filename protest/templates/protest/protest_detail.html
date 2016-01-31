@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">시위 정보
+            <small>Protest Detail</small>
+        </h1>
+    </div>
+</div>
+<div class = "container">
+    <div class = "jumbotron">
+            <p>
+                제목 : {{protest.title}}<br><br>
+                내용 : {{protest.content}}<br>
+                장소 : {{protest.place}}<br>
+                일시 : {{protest.date}}<br>
+                모집 인원 : {{protest.number_of_people}}<br>
+                참가 대기 인원 : {{num.count}}<br>
+                주최자 : {{protest.user}}<br>
+            </p>
+    </div>
+</div>
+{% endblock %}
