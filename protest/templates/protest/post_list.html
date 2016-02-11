@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 {% load staticfiles %}
-{% %}
 <html lang="en">
 
 <head>
@@ -18,7 +17,7 @@
 
     <!-- Custom CSS -->
     <link href="{% static "css/heroic-features.css" %}" rel="stylesheet">
-    <link href="{% static "css/landing-page.css" %}" rek="stylesheet">
+    <link href="{% static "css/index.css" %}" rek="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -51,7 +50,7 @@
                         <a href="/protests/new/">Create Protest</a>
                     </li>
                     <li>
-                        <a href="#services">Participate Protest</a>
+                        <a href="/protests/">Participate Protest</a>
                     </li>
                     <li>
                         <a href="#contact">My Page</a>
@@ -85,61 +84,39 @@
         <!-- /.row -->
 
         <!-- Page Features -->
+        {% block content %}
         <div class="row text-center">
 
             <div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
                     <img src="http://placehold.it/800x500" alt="">
                     <div class="caption">
-                        <h3>Protest</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        {% for protest in post_list %}
+                            <tr>
+                                <td>
+                                    {{ protest.title }}
+                                </td>
+                                <td>
+                                    {{ protest.type_of }}
+                                </td>
+                                <td>
+                                    {{ protest.place }}
+                                </td>
+                                <td>
+                                    {{ protest.date }}
+                                </td>
+                            </tr>
                         <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
+                            <a href="#" class="btn btn-primary">Join Now!</a> <a href="#" class="btn btn-default">More Info</a>
                         </p>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/800x500" alt="">
-                    <div class="caption">
-                        <h3>Feature Label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
+        {% endblock%}    
 
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/800x500" alt="">
-                    <div class="caption">
-                        <h3>Feature Label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/800x500" alt="">
-                    <div class="caption">
-                        <h3>Feature Label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
         <!-- /.row -->
 
         <hr>
