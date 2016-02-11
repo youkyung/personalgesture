@@ -33,14 +33,32 @@ def protest_new(request):
 
 def protest_edit(request, pk):
     protest = Protest.objects.get(pk= pk)
+    form = ProtestForm (request.POST, instance = protest)
 
     if request.method == 'POST':
-        form = ProtestForm (request.POST, instance = post)
+
         if form.is_valid():
             protest = form.save()
             return redirect('blog.views.protest_edit', protest.pk)
 
     else: form = ProtestForm (instance = protest)
-    return render(request, 'templates/protest_form.html', {
+
+    return render(request, 'protest/protest_form.html', {
         'form' : form,
         })
+
+
+def protest_detail(request, pk) :
+    protest = Protest.objects.get(pk=pk)
+
+    params = {
+    'protest' : protest,
+    }
+    return render(request, 'protest/protest_detail.html',params)
+
+'''
+def post_detail(request):
+    return render(request, 'blog/post_detail.html')
+
+post_detail = DetailView.as_view(model=Post)
+'''
